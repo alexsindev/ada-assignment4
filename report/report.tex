@@ -362,22 +362,22 @@ def bellman_ford(edges, vertices, source):
 \paragraph{Output.}
 \begin{lstlisting}[style=output]
 Dijkstra – shortest paths from 'A':
-  Target     Distance     Path
-  --------------------------------------------------
-  A          0            A
-  B          3            A -> C -> B
-  C          2            A -> C
-  D          8            A -> C -> B -> D
+Target     Distance     Path
+--------------------------------------------------
+A          0            A
+B          3            A -> C -> B
+C          2            A -> C
+D          8            A -> C -> B -> D
 
 Bellman-Ford – shortest paths from 'A':
-  Target     Distance     Path
-  --------------------------------------------------
-  A          0            A
-  B          3            A -> C -> B
-  C          2            A -> C
-  D          8            A -> C -> B -> D
+Target     Distance     Path
+--------------------------------------------------
+A          0            A
+B          3            A -> C -> B
+C          2            A -> C
+D          8            A -> C -> B -> D
 
-  Negative cycle detected: False
+Negative cycle detected: False
 \end{lstlisting}
 
 \paragraph{Discussion.}
@@ -439,24 +439,24 @@ Floyd-Warshall All-Pairs Shortest Paths
 Negative cycle detected: False
 
 Distance matrix (INF = no path):
-            A       B       C       D
-   A        0       3       2       8
-   B      INF       0     INF       5
-   C      INF       1       0       6
-   D      INF     INF     INF       0
+      A       B       C       D
+A     0       3       2       8
+B   INF       0     INF       5
+C   INF       1       0       6
+D   INF     INF     INF       0
 
 Path reconstruction (all reachable pairs):
 ------------------------------------------------
-  A -> B: dist=3, path=A -> C -> B
-  A -> C: dist=2, path=A -> C
-  A -> D: dist=8, path=A -> C -> B -> D
-  B -> A: unreachable
-  B -> C: unreachable
-  B -> D: dist=5, path=B -> D
-  C -> A: unreachable
-  C -> B: dist=1, path=C -> B
-  C -> D: dist=6, path=C -> B -> D
-  D -> A/B/C: unreachable
+A -> B: dist=3, path=A -> C -> B
+A -> C: dist=2, path=A -> C
+A -> D: dist=8, path=A -> C -> B -> D
+B -> A: unreachable
+B -> C: unreachable
+B -> D: dist=5, path=B -> D
+C -> A: unreachable
+C -> B: dist=1, path=C -> B
+C -> D: dist=6, path=C -> B -> D
+D -> A/B/C: unreachable
 \end{lstlisting}
 
 \paragraph{Path reconstruction.}
@@ -598,22 +598,22 @@ def greedy_interval_scheduling(jobs):
 \paragraph{Output.}
 \begin{lstlisting}[style=output]
 All jobs sorted by finish time:
-  Job      Start    Finish   Reward
-  ------------------------------------
-  J1       1        4        5
-  J2       3        5        2
-  J3       0        6        8
-  J4       4        7        6
-  J5       3        8        7
+Job      Start    Finish   Reward
+------------------------------------
+J1       1        4        5
+J2       3        5        2
+J3       0        6        8
+J4       4        7        6
+J5       3        8        7
 
 Selected jobs (2 non-overlapping):
-  Job      Start    Finish   Reward
-  ------------------------------------
-  J1       1        4        5
-  J4       4        7        6
+Job      Start    Finish   Reward
+------------------------------------
+J1       1        4        5
+J4       4        7        6
 
-  Jobs selected : 2
-  Total reward  : 11
+Jobs selected : 2
+Total reward  : 11
 \end{lstlisting}
 
 The greedy algorithm selects J1 (finishes earliest at time 4) then J4 (starts exactly at 4, compatible), yielding the maximum possible count of 2 non-overlapping jobs. J2, J3, and J5 all overlap with J1.
@@ -670,37 +670,37 @@ def weighted_interval_scheduling(jobs):
 \paragraph{Output.}
 \begin{lstlisting}[style=output]
 Jobs sorted by finish time (p uses 1-based indexing, 0 = none):
-  j     Job      Start    Finish   Reward   p(j)
-  ------------------------------------------------
-  1     J1       1        4        5        0
-  2     J2       3        5        2        0
-  3     J3       0        6        8        0
-  4     J4       4        7        6        1
-  5     J5       3        8        7        0
+j     Job      Start    Finish   Reward   p(j)
+------------------------------------------------
+1     J1       1        4        5        0
+2     J2       3        5        2        0
+3     J3       0        6        8        0
+4     J4       4        7        6        1
+5     J5       3        8        7        0
 
 Recurrence:
-  OPT(0) = 0
-  OPT(j) = max( reward_j + OPT(p(j)),  OPT(j-1) )
+OPT(0) = 0
+OPT(j) = max( reward_j + OPT(p(j)),  OPT(j-1) )
 
 DP table:
-  j      OPT(j)
-  --------------
-  0      0
-  1      5
-  2      5
-  3      8
-  4      11
-  5      11
+j      OPT(j)
+--------------
+0      0
+1      5
+2      5
+3      8
+4      11
+5      11
 
 Maximum total reward: 11
 
 Selected jobs:
-  Job      Start    Finish   Reward
-  ------------------------------------
-  J1       1        4        5
-  J4       4        7        6
+Job      Start    Finish   Reward
+------------------------------------
+J1       1        4        5
+J4       4        7        6
 
-  Total reward: 11
+Total reward: 11
 \end{lstlisting}
 
 \paragraph{DP table walkthrough.}
