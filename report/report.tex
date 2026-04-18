@@ -61,10 +61,10 @@
   frame=single,
   framesep=4pt,
   numbers=none,
-  numbersep=0pt,
-  xleftmargin=0pt,
   captionpos=b,
 }
+
+\lstset{style=python}
 
 % ── Document ─────────────────────────────────────────────────────────────────
 \begin{document}
@@ -239,7 +239,7 @@ def reconstruct_path(parent, source, target):
     return path if (path and path[0] == source) else None
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 BFS from source: A
 Target     Hops       Path
@@ -277,7 +277,7 @@ def dfs_visit(u):
     color[u] = 'black';  time[0] += 1;  fin[u] = time[0]
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 DFS Structure Analysis
 ================================================
@@ -359,7 +359,7 @@ def bellman_ford(edges, vertices, source):
     return dist, parent, has_neg_cycle
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 Dijkstra – shortest paths from 'A':
 Target     Distance     Path
@@ -432,7 +432,7 @@ def reconstruct_path(vertices, nxt, idx, src, dst):
     return path
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 Floyd-Warshall All-Pairs Shortest Paths
 ==================================================
@@ -511,7 +511,7 @@ def prim(graph, vertices, start):
     return mst_edges, total_cost
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 Prim's Minimum Spanning Tree
 ===================================
@@ -595,7 +595,7 @@ def greedy_interval_scheduling(jobs):
     return selected
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 All jobs sorted by finish time:
 Job      Start    Finish   Reward
@@ -667,7 +667,7 @@ def weighted_interval_scheduling(jobs):
     return dp[n], selected, dp, jobs_sorted, p
 \end{lstlisting}
 
-\paragraph{Output.}
+\subsection{Output:}
 \begin{lstlisting}[style=output]
 Jobs sorted by finish time (p uses 1-based indexing, 0 = none):
 j     Job      Start    Finish   Reward   p(j)
